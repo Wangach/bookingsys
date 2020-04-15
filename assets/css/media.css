@@ -1,0 +1,41 @@
+/*Tablet Displays*/
+@media screen and (max-width: 1024px){
+	.nav-links{
+		width: 60%;
+	}
+}
+
+/*Mobile Phones*/
+@media screen and (max-width: 768px){
+	body {
+		overflow-x: hidden;
+	}
+	.cnav-links {
+		position: absolute;
+		right: 0px;
+		height: 92vh;
+		top: 8vh;
+		background: #5d4954;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		z-index: 999999;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+	}
+	#clogo {
+		font-size: 10px;
+	}
+	.cnav-links li{
+		
+	}
+	#cburger {
+		display: block;
+		cursor: pointer;
+	}
+	.cnav-active{
+		transform: translateX(0%);
+	}
+	
+}

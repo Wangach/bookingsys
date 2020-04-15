@@ -1,0 +1,173 @@
+/*Importing Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Gotu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Russo+One&display=swap');
+
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+html{
+	background: url(../img/dualshock4.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+
+}
+body{
+	overflow-x: hidden;
+}
+
+nav.mynav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 8vh;
+	background: #5d4954;
+	z-index: 99999;
+}
+div.overlay{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 92, 72, 0.35);
+	position: absolute;
+	z-index: 99;
+}
+#clogo {
+	color: rgb(226, 226, 226);
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	font-size: 15px;
+	font-family: 'Gotu', Sans-Serif;
+}
+.cnav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+.cnav-links a{
+	text-decoration: none !important;
+	color: rgb(226, 226, 226) !important;
+	font-weight: bold;
+	letter-spacing: 5px;
+	
+	font-size: 10px;
+}
+.cnav-links li{
+	list-style: none;
+}
+#cburger div{
+	width: 30px;
+	height: 5px;
+	background-color: rgb(226, 226, 226);
+	margin: 5px;
+}
+#cburger {
+	display: none;
+}
+footer {
+	width: 100%;
+	height: 70px;
+	color: #fff;
+	background: rgba(19, 17, 17, 0.6);
+	position: fixed;
+	bottom: 0;
+	z-index: 9999;
+	text-align: center;
+	padding: 30px;
+	margin-top: 100px;
+}
+
+/*Styling The Customer Page*/
+div#organize {
+	display: grid;
+	grid-auto-columns: 350px 1fr;
+	grid-template-areas: 
+	"newest statistics"
+	"factoids statistics";
+	grid-gap: 10px;
+	z-index: 9999;
+	background: rgba(19, 17, 17, 0.6);
+	width: 90%;
+	color: rgb(226, 226, 226);
+	margin: 50px;
+	padding: 30px;
+	position: absolute;
+	border-radius: 5px;
+}
+.new {
+	grid-area: newest;
+	background: #175256;
+	padding: 20px;
+	border: 1px solid #175256;
+	border-radius: 5px;
+
+}
+.qfacts {
+	grid-area: factoids;
+	background: #175256;
+	padding: 20px;
+	border: 1px solid #175256;
+	border-radius: 5px;
+}
+.stats {
+	grid-area: statistics;
+	background: #175256;
+	padding: 20px;
+	border: 1px solid #175256;
+	border-radius: 5px;
+}
+.div-header {
+	background: rgba(55, 198, 129, 0.5);
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: underline;
+}
+/*PS4 Individual Data Organize*/
+#consoles {
+	display: grid;
+	grid-auto-columns: 1fr 1fr;
+	grid-template-areas: 
+	"psone pstwo";
+}
+.console1 {
+	grid-area: psone;
+	background: rgba(150, 78, 82, 0.8);
+	margin: 0px 10px;
+	text-align: center;
+	height: 320px;
+	padding: 20px;
+}
+.console2 {
+	grid-area: pstwo;
+	background: rgba(153, 163, 105, 0.8);
+	margin: 0px 10px;
+	text-align: center;
+	height: 320px;
+	padding: 20px;
+}
+.console1 h4{
+	font-family: 'Russo One', sans-serif;
+}
+.console2 h4{
+	font-family: 'Russo One', sans-serif;
+}
+.status {
+	font-weight: bold;
+}
+.more-dets h5{
+	text-transform: uppercase;
+	font-weight: bolder;
+	text-decoration: underline;
+}
+.gamesavail p{
+	background: #f5dad6;
+	padding: 5px;
+	color: #0179ad;
+	width: 50%;
+	margin: 5px auto;
+	font-family: 'Courgette', Cursive;
+}

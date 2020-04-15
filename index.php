@@ -5,24 +5,68 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Broad Horizons Ent | PS Booking System</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/media.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
-	<nav>
-		<div id="logo">
+	<nav class="mynav">
+		<div id="clogo">
 			<h4>Broad Horizons</h4>
 		</div>
 
-		<ul class="nav-links">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Register</a></li>
-			<li><a href="#">Login</a></li>
-
-			<div id="burger">
-				<div class="line1"></div>
-				<div class="line2"></div>
-				<div class="line3"></div>
-			</div><!--/#burger/-->
+		<ul class="cnav-links">
+			<li><a href="index.php">Register</a></li>
+			<li><a href="login.php">Login</a></li>
 		</ul>
+		<div id="cburger">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+		</div><!--/#burger/-->
 	</nav>
+	<div class="overlay"></div>
+	<div id="holder">
+		<div class="welcoming">
+			<h4 class="welcoming-text">
+				Welcome To Broad Horizons Playstation Booking System
+			</h4>
+		</div><!--/.welcoming/-->
+		<div class="register">
+			<div class="form-top">
+				<h5>Kindly Register To Continue</h5>
+				<p>All Fields Are Compulsory</p>
+			</div><!--/.form-top/-->
+			<form action="#" class="registration-form" method="POST">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" class="form-control" placeholder="Your Name..." name="" id="" required>
+				</div>
+				<div class="form-group">
+					<label for="phone">Phone:</label>
+					<input type="number" class="form-control" placeholder="Your Phone Number..." name="" id="" required>
+				</div>
+				<div class="form-group">
+					<label for="pass1">Password:</label>
+					<input type="password" class="form-control" placeholder="Your Password..." name="pass1" id="" required>
+				</div>
+				<div class="form-group">
+					<label for="pass2">Repeat Password:</label>
+					<input type="password" class="form-control" placeholder="Repeat Password..." name="pass2" id="" required>
+				</div>
+				<button type="submit" class="btn btn-warning">Register</button>
+				<p>Already Registered? <a target="_blank" id="login" href="login.php">Click Here.</a> </p>
+			</form>
+		</div><!--/.register/-->
+	</div><!--/#holder/-->
+	<footer id="foot">
+		<p>&copy; Broad Horizons Ent <script>
+			let date = new Date;
+			let yr = date.getFullYear();
+			document.write(yr);
+		</script></p>
+	</footer>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>

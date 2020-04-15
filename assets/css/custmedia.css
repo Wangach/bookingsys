@@ -1,0 +1,60 @@
+/*Tablet Displays*/
+@media screen and (max-width: 1024px){
+	.cnav-links{
+		width: 60%;
+	}
+	.cnav-links a {
+    	font-size: 10px;
+	}
+	div#organize {
+	    display: grid;
+	    grid-auto-columns: 1fr 1fr;
+	    grid-template-areas: "newest factoids"
+	    "statistics statistics";
+	}
+	div.overlay{
+		width: 100%;
+		height: 850px;
+		background: rgba(0, 92, 72, 0.35);
+		position: absolute;
+		z-index: 99;
+	}
+	div.modal-dialog{
+		z-index: 9999999 !important;
+	}
+}
+
+/*Mobile Phones*/
+@media screen and (max-width: 768px){
+	body {
+		overflow-x: hidden;
+	}
+	.cnav-links {
+		position: absolute;
+		right: 0px;
+		height: 92vh;
+		top: 8vh;
+		background: #5d4954;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		z-index: 999999;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+	}
+	#clogo {
+		font-size: 10px;
+	}
+	.cnav-links li{
+		
+	}
+	#cburger {
+		display: block;
+		cursor: pointer;
+	}
+	.cnav-active{
+		transform: translateX(0%);
+	}
+	
+}
