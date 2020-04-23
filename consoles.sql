@@ -1,0 +1,1 @@
+CREATE TABLE `bookingsys`.`consoles` ( `id` INT NOT NULL AUTO_INCREMENT , `psname` VARCHAR(50) NOT NULL , `pshours` VARCHAR(50) NOT NULL , `bookstatus` INT NOT NULL DEFAULT '0' , `psstatus` INT NOT NULL DEFAULT '3' , PRIMARY KEY (`id`)) ENGINE = InnoDB; 

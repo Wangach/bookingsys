@@ -1,3 +1,6 @@
+<?php 
+include 'scripts/cuslogin.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,28 +36,22 @@
 		</div><!--/.welcoming/-->
 		<div class="register">
 			<div class="form-top">
-				<h5>Kindly Register To Continue</h5>
-				<p>All Fields Are Compulsory</p>
+				<h5>Login</h5>
+				
 			</div><!--/.form-top/-->
-			<form action="#" class="registration-form" method="POST">
-				<div class="form-group">
-					<label for="name">Name:</label>
-					<input type="text" class="form-control" placeholder="Your Name..." name="" id="" required>
-				</div>
+			<form action="login.php" class="login-form" method="POST">
+				
 				<div class="form-group">
 					<label for="phone">Phone:</label>
-					<input type="number" class="form-control" placeholder="Your Phone Number..." name="" id="" required>
+					<input type="number" class="form-control" placeholder="Your Phone Number..." name="credone" id="namba" required>
 				</div>
 				<div class="form-group">
 					<label for="pass1">Password:</label>
-					<input type="password" class="form-control" placeholder="Your Password..." name="pass1" id="" required>
+					<input type="password" class="form-control" placeholder="Your Password..." name="credtwo" id="siri" required>
 				</div>
-				<div class="form-group">
-					<label for="pass2">Repeat Password:</label>
-					<input type="password" class="form-control" placeholder="Repeat Password..." name="pass2" id="" required>
-				</div>
-				<button type="submit" class="btn btn-warning">Register</button>
-				<p>Already Registered? <a target="_blank" id="login" href="login.php">Click Here.</a> </p>
+				
+				<button type="submit" name="ingia" class="btn btn-warning">Login</button>
+				<p>Not Yet Registered? <a target="_blank" id="register" href="index.php">Click Here.</a> </p>
 			</form>
 		</div><!--/.register/-->
 	</div><!--/#holder/-->

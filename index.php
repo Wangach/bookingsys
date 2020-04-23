@@ -24,6 +24,7 @@
 			<div class="line3"></div>
 		</div><!--/#burger/-->
 	</nav>
+
 	<div class="overlay"></div>
 	<div id="holder">
 		<div class="welcoming">
@@ -34,24 +35,29 @@
 		<div class="register">
 			<div class="form-top">
 				<h5>Kindly Register To Continue</h5>
-				<p>All Fields Are Compulsory</p>
+				<div id="server-response"></div>
 			</div><!--/.form-top/-->
-			<form action="#" class="registration-form" method="POST">
+			<form action="scripts/register.php" class="registration-form" method="POST">
 				<div class="form-group">
 					<label for="name">Name:</label>
-					<input type="text" class="form-control" placeholder="Your Name..." name="" id="" required>
+					<div class="error-name">This Field Cannot Be Blank!</div><!--Error Classes-->
+					<input type="text" class="form-control" placeholder="Your Name..." name="jina" id="cn" required>
 				</div>
 				<div class="form-group">
 					<label for="phone">Phone:</label>
-					<input type="number" class="form-control" placeholder="Your Phone Number..." name="" id="" required>
+					<div class="error-phone">This Field Cannot Be Blank!</div><!--Error Classes-->
+					<input type="number" class="form-control" placeholder="Your Phone Number..." name="simu" id="pn" required>
 				</div>
 				<div class="form-group">
 					<label for="pass1">Password:</label>
-					<input type="password" class="form-control" placeholder="Your Password..." name="pass1" id="" required>
+					<div class="error-pass1">This Field Cannot Be Blank!</div><!--Error Classes-->
+					<input type="password" class="form-control" placeholder="Your Password..." name="pass1" id="pw" required>
 				</div>
 				<div class="form-group">
 					<label for="pass2">Repeat Password:</label>
-					<input type="password" class="form-control" placeholder="Repeat Password..." name="pass2" id="" required>
+					<div class="error-pass2">This Field Cannot Be Blank!</div><!--Error Classes-->
+					<div class="error-repeatpass">Passwords Do Not Match!</div><!--Error Classes-->
+					<input type="password" class="form-control" placeholder="Repeat Password..." name="pass2" id="pwr" required>
 				</div>
 				<button type="submit" class="btn btn-warning">Register</button>
 				<p>Already Registered? <a target="_blank" id="login" href="login.php">Click Here.</a> </p>

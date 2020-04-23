@@ -171,3 +171,20 @@ div#organize {
 	margin: 5px auto;
 	font-family: 'Courgette', Cursive;
 }
+/*Booking Form*/
+.modal-header {
+	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-family: 'Courgette', Cursive;
+	color: #4B4949;
+}
+form#book-form {
+	text-align: center;
+}
+.form-group label{
+	color: #4B4949;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+

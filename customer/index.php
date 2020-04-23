@@ -1,3 +1,38 @@
+<?php 
+//include '../scripts/db.php';
+include '../scripts/cuslogin.php';
+//Check whether the user has logged in
+if (empty($_SESSION['islogged']) || !isset($_SESSION['islogged'])) {
+	$outp = "<script>";
+	$outp .= "alert('Log In First!')";
+	$outp .= "</script>";
+
+	echo $outp;
+	header("Location: ../index.php");
+}else{
+	$phon = $_SESSION['islogged'];
+	$getuser = "SELECT * FROM users WHERE phone = '$phon'";
+	$findus = mysqli_query($connect, $getuser);
+	if (mysqli_num_rows($findus) > 0) {
+		while ($row = mysqli_fetch_assoc($findus)) {
+			$user = $row['name'];
+			$change_st = "UPDATE users SET logged = '1' WHERE name = '$user'";
+			$confirm = mysqli_query($connect, $change_st);
+		}
+	}
+	//When The Logout Button Is Pressed 
+	if (isset($_GET['logout'])) {
+		$revert = "UPDATE users SET logged = '0' WHERE phone = '$phon'";
+		$revconf = mysqli_query($connect, $revert);
+
+		//Destroy session
+		//session_destroy();
+		unset($_SESSION['islogged']);
+		header('Location: ../login.php');
+	}
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +50,9 @@
 		</div>
 
 		<ul class="cnav-links">
-			<li><a class="book" href="#" data-toggle="modal" data-target="#exampleModalCenter">Book PS</a></li>
-			<li><a href="login.php">My Profile</a></li>
-			<li><a href="login.php">Logout</a></li>
+			<li><a class="book" href="#" data-toggle="modal" data-target="#exampleModalCenter"> <span class="glyphicon glyphicon-book"></span>Book PS</a></li>
+			<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php echo $user; ?></a></li>
+			<li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		</ul>
 		<div id="cburger">
 			<div class="line1"></div>
@@ -93,23 +128,15 @@
 			      	<form action="#" id="book-form" method="POST">
 			      		<div class="form-group">
 			      			<label for="t">PS4 Id</label>
-			      			<select name="tme" id="toplay" class="form-control">
+			      			<select name="playstation" id="psid" class="form-control">
 			      				<option value=""></option>
-			      				<option value="1">PS4#1</option>
-			      				<option value="2">PS4#2</option>
+			      				<option value="Blessed">PS4#1</option>
+			      				<option value="Favored">PS4#2</option>
 			      			</select>
 			      		</div>
 			      		<div class="form-group">
-			      			<label for="p1">Player 1</label>
-			      			<input type="text" class="form-control" placeholder="Your Name..." name="plone" id="yn">
-			      		</div>
-			      		<div class="form-group">
-			      			<label for="p2">Player 2</label>
-			      			<input type="text" class="form-control" placeholder="Your Opponent's Name..." name="pltwo" id="yon">
-			      		</div>
-			      		<div class="form-group">
 			      			<label for="t">Time</label>
-			      			<select name="tme" id="toplay" class="form-control">
+			      			<select name="tme" id="toplay" class="form-control" disabled>
 			      				<option value=""></option>
 			      				<option value="9">9 A.M.</option>
 			      				<option value="10">10 A.M.</option>
@@ -123,10 +150,33 @@
 			      				<option value="6">6 P.M.</option>
 			      			</select>
 			      		</div>
+			      		<div class="form-group">
+			      			<label for="p1">Player 1</label>
+			      			<input type="text" class="form-control" placeholder="Your Name..." name="plone" id="yn">
+			      		</div>
+			      		<div class="form-group">
+			      			<label for="p2">Player 2</label>
+			      			<input type="text" class="form-control" placeholder="Your Opponent's Name..." name="pltwo" id="yon">
+			      		</div>
+			      		
+			      		<div class="form-group">
+			      			<label for="matches">Number Of Matches:</label>
+			      			<select name="tme" id="toplay" class="form-control">
+			      				<option value=""></option>
+			      				<option value="1">One</option>
+			      				<option value="2">Two</option>
+			      				<option value="3">Three</option>
+			      				<option value="4">Four</option>
+			      				<option value="5">Five</option>
+			      				<option value="sixplus">6+</option>
+			      			</select>
+			      		</div>
+			      		<button id="conf" class="btn btn-danger">Confirm</button>
+			      		<button name="book" id="book" class="btn btn-success">Book</button>
 			      	</form>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        
 			      </div>
 			    </div>
 			  </div>
@@ -141,7 +191,8 @@
 			document.write(yr);
 		</script></p>
 	</footer>
-	<script src="../assets/js/app.js"></script>
+	
+	<script src="js/book.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/bootstrap.min.js"></script>
 </body>
