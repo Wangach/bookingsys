@@ -1,36 +1,5 @@
 <?php 
-//include '../scripts/db.php';
-include '../scripts/cuslogin.php';
-//Check whether the user has logged in
-if (empty($_SESSION['islogged']) || !isset($_SESSION['islogged'])) {
-	$outp = "<script>";
-	$outp .= "alert('Log In First!')";
-	$outp .= "</script>";
-
-	echo $outp;
-	header("Location: ../index.php");
-}else{
-	$phon = $_SESSION['islogged'];
-	$getuser = "SELECT * FROM users WHERE phone = '$phon'";
-	$findus = mysqli_query($connect, $getuser);
-	if (mysqli_num_rows($findus) > 0) {
-		while ($row = mysqli_fetch_assoc($findus)) {
-			$user = $row['name'];
-			$change_st = "UPDATE users SET logged = '1' WHERE name = '$user'";
-			$confirm = mysqli_query($connect, $change_st);
-		}
-	}
-	//When The Logout Button Is Pressed 
-	if (isset($_GET['logout'])) {
-		$revert = "UPDATE users SET logged = '0' WHERE phone = '$phon'";
-		$revconf = mysqli_query($connect, $revert);
-
-		//Destroy session
-		//session_destroy();
-		unset($_SESSION['islogged']);
-		header('Location: ../login.php');
-	}
-}
+include '../scripts/checksession.php';
 
  ?>
 <!DOCTYPE html>
@@ -52,7 +21,7 @@ if (empty($_SESSION['islogged']) || !isset($_SESSION['islogged'])) {
 		<ul class="cnav-links">
 			<li><a class="book" href="#" data-toggle="modal" data-target="#exampleModalCenter"> <span class="glyphicon glyphicon-book"></span>Book PS</a></li>
 			<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php echo $user; ?></a></li>
-			<li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+			<li><a href="../scripts/cuslogin.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		</ul>
 		<div id="cburger">
 			<div class="line1"></div>
@@ -125,58 +94,29 @@ if (empty($_SESSION['islogged']) || !isset($_SESSION['islogged'])) {
 			        </button>
 			      </div>
 			      <div class="modal-body">
-			      	<form action="#" id="book-form" method="POST">
-			      		<div class="form-group">
-			      			<label for="t">PS4 Id</label>
-			      			<select name="playstation" id="psid" class="form-control">
-			      				<option value=""></option>
-			      				<option value="Blessed">PS4#1</option>
-			      				<option value="Favored">PS4#2</option>
-			      			</select>
-			      		</div>
+			      	<form action="scripts/book.php" id="book-form" method="POST">
 			      		<div class="form-group">
 			      			<label for="t">Time</label>
-			      			<select name="tme" id="toplay" class="form-control" disabled>
-			      				<option value=""></option>
-			      				<option value="9">9 A.M.</option>
-			      				<option value="10">10 A.M.</option>
-			      				<option value="11">11 A.M.</option>
-			      				<option value="12">12 Noon</option>
-			      				<option value="1">1 P.M.</option>
-			      				<option value="2">2 P.M.</option>
-			      				<option value="3">3 P.M.</option>
-			      				<option value="4">4 P.M.</option>
-			      				<option value="5">5 P.M.</option>
-			      				<option value="6">6 P.M.</option>
-			      			</select>
-			      		</div>
-			      		<div class="form-group">
-			      			<label for="p1">Player 1</label>
-			      			<input type="text" class="form-control" placeholder="Your Name..." name="plone" id="yn">
-			      		</div>
-			      		<div class="form-group">
-			      			<label for="p2">Player 2</label>
-			      			<input type="text" class="form-control" placeholder="Your Opponent's Name..." name="pltwo" id="yon">
-			      		</div>
-			      		
-			      		<div class="form-group">
-			      			<label for="matches">Number Of Matches:</label>
 			      			<select name="tme" id="toplay" class="form-control">
 			      				<option value=""></option>
-			      				<option value="1">One</option>
-			      				<option value="2">Two</option>
-			      				<option value="3">Three</option>
-			      				<option value="4">Four</option>
-			      				<option value="5">Five</option>
-			      				<option value="sixplus">6+</option>
+			      				<option value="9 A.M.">9 A.M.</option>
+			      				<option value="10 A.M.">10 A.M.</option>
+			      				<option value="11 A.M.">11 A.M.</option>
+			      				<option value="12 A.M.">12 Noon</option>
+			      				<option value="1 P.M.">1 P.M.</option>
+			      				<option value="2 P.M.">2 P.M.</option>
+			      				<option value="3 P.M.">3 P.M.</option>
+			      				<option value="4 P.M.">4 P.M.</option>
+			      				<option value="5 P.M.">5 P.M.</option>
+			      				<option value="6 P.M.">6 P.M.</option>
 			      			</select>
 			      		</div>
-			      		<button id="conf" class="btn btn-danger">Confirm</button>
-			      		<button name="book" id="book" class="btn btn-success">Book</button>
+			      		
+			      		<button type="submit" name="tafuta" id="conf" class="btn btn-info">Search PS</button>
 			      	</form>
 			      </div>
 			      <div class="modal-footer">
-			        
+			        <div id="results"></div>
 			      </div>
 			    </div>
 			  </div>

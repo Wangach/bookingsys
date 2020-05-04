@@ -24,5 +24,14 @@ if (isset($_POST['ingia'])) {
 		}
 	}
 }
+//When The Logout Button Is Pressed 
+if (isset($_GET['logout'])) {
+	$revert = "UPDATE users SET logged = '0' WHERE phone = '$phon'";
+	$revconf = mysqli_query($connect, $revert);
 
+	//Destroy session
+	//session_destroy();
+	unset($_SESSION['islogged']);
+	header('Location: login.php');
+}
  ?>

@@ -1,13 +1,20 @@
 let timeOfPlay = document.getElementById('psid');
-let sth = document.getElementById('book-form');
-timeOfPlay.onblur = function(){
+let form = document.querySelector('form#book-form');
+let disp = document.getElementById('results');
+let url = form.getAttribute('action');
+
+form.onsubmit = function(event){
+	event.preventDefault();
+
 	var request = new XMLHttpRequest;
-	request.open('POST', '../customer/scripts/book.php');
+	request.open('POST', url);
 	request.onreadystatechange = function(){
 		if (this.readyState == 4 && this.status == 200) {
-			alert(this.responseText);
+			let frmdb = this.responseText;
+			//show the results
+			disp.innerHTML = frmdb;
 		}
 	}
-	let fData = new FormData(sth);
+	let fData = new FormData(form);
 	request.send(fData);
 }
