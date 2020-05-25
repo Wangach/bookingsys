@@ -32,6 +32,6 @@ if (isset($_GET['logout'])) {
 	//Destroy session
 	//session_destroy();
 	unset($_SESSION['islogged']);
-	header('Location: login.php');
+	header('Location: ../login.php');
 }
  ?>

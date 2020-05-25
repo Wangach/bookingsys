@@ -14,14 +14,11 @@ if (isset($_GET['hourid'])) {
 		while ($data = mysqli_fetch_assoc($pata)) {
 			$hr = $data['id'];
 			$nombre = $data['psname'];
-			echo $nombre;
+			$playTime = $data['pshours'];
+			$bookStat = $data['bookstatus'];
 		}
 	}
-	$output = "<script>";
-	$output .= "alert('$selectedHour')";
-	$output .= "</script>";
-
-	echo $output;
+	
 }
 
 
@@ -45,7 +42,7 @@ if (isset($_GET['hourid'])) {
 
 		<ul class="cnav-links">
 			<li><a class="book" href="index.php"> <span class="glyphicon glyphicon-home"></span>Home</a></li>
-			<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php echo $nombre; ?></a></li>
+			<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php echo $user; ?></a></li>
 			<li><a href="../scripts/cuslogin.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 		</ul>
 		<div id="cburger">
@@ -55,23 +52,43 @@ if (isset($_GET['hourid'])) {
 		</div><!--/#burger/-->
 	</nav>
 	<div class="overlay"></div><!--/.overlay/-->
-		<div id="bookings-form-top">
-			<h2>Form</h2>
-		</div>
-		<form action="" id="bookings-form">
-			<div class="form-group">
-				<label for="you">Your Name:</label>
-				<input type="text" class="form-control" placeholder="Your Name..." name="" id="">
+		<div id="book-step">
+			<div id="bookings-form-top">
+				<h2>Book Playstation</h2>
 			</div>
-			<div class="form-group">
-				<label for="opponent">Opponent Name:</label>
-				<input type="text" class="form-control" placeholder="Opponent's Name..." name="" id="">
-			</div>
-			<div class="form-group">
-				<label for="time">Chosen Time:</label>
-				<input type="text" class="form-control" placeholder="Playing Time..." value="<?php echo $nombre; ?>">
-			</div>
-		</form>
+			<form action="scripts/book.php" id="bookings-form" method="POST">
+				<div class="form-group">
+					<label for="you">Your Name:</label>
+					<input type="text" class="form-control" placeholder="Your Name..." name="" id="" required>
+				</div>
+				<div class="form-group">
+					<label for="opponent">Opponent Name:</label>
+					<input type="text" class="form-control" placeholder="Opponent's Name..." name="" id="" required>
+				</div>
+				<div class="form-group">
+					<label for="time">Chosen Time:</label>
+					<input type="text" class="form-control" placeholder="Playing Time..." value="<?php echo $playTime; ?>" disabled>
+				</div>
+				<div class="form-group">
+					<label for="matches">No. Of Matches:</label>
+					<select name="" id="" class="form-control" required>
+						<option value=""></option>
+						<option value="1" name="1">1</option>
+						<option value="2" name="2">2</option>
+						<option value="3" name="3">3</option>
+						<option value="4" name="4">4</option>
+						<option value="5" name="5">5</option>
+						<option value="6" name="6">6</option>
+						<option value="7" name="7">7</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="time">Phone Number:</label>
+					<input type="text" class="form-control" placeholder="Your Phone Number..." name="" id="" required>
+				</div>
+				<button type="submit" class="btn btn-success">Book Now</button>
+			</form>
+		</div><!--/#book-step/-->
 	<footer id="foot">
 		<p>&copy; Broad Horizons Ent <script>
 			let date = new Date;
@@ -80,7 +97,7 @@ if (isset($_GET['hourid'])) {
 		</script></p>
 	</footer>
 	
-	<script src="js/book.js"></script>
+	<script src="../assets/bookps.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/bootstrap.min.js"></script>
 </body>

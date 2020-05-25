@@ -8,7 +8,7 @@ $output = '';
 
 
 	//Exsecute Query
-	$ins = "INSERT INTO users (id, name, phone, password) VALUES ('', '$customerName', '$customerPhone', '$customerPassword')";
+	$ins = "INSERT INTO users (name, phone, password) VALUES ('$customerName', '$customerPhone', '$customerPassword')";
 	$exec = mysqli_query($connect, $ins);
 
 

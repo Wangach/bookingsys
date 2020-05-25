@@ -1,0 +1,3 @@
+CREATE TABLE `bookingsys`.`users` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `phone` VARCHAR(100) NOT NULL , `password` VARCHAR(1000) NOT NULL , `logged` INT NOT NULL DEFAULT '0' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+/*sEC*/
+CREATE TABLE `bookingsys`.`users` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `phone` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

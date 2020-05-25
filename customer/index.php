@@ -94,7 +94,7 @@ include '../scripts/checksession.php';
 			        </button>
 			      </div>
 			      <div class="modal-body">
-			      	<form action="scripts/book.php" id="book-form" method="POST">
+			      	<form action="scripts/searchps.php" id="book-form" method="POST">
 			      		<div class="form-group">
 			      			<label for="t">Time</label>
 			      			<select name="tme" id="toplay" class="form-control">
