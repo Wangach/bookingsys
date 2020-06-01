@@ -2,6 +2,7 @@
 include 'db.php';
 session_start();
 $outp = '';
+$namba = "";
 
 if (isset($_POST['ingia'])) {
 	$namba = mysqli_real_escape_string($connect, $_POST['credone']);
@@ -26,7 +27,8 @@ if (isset($_POST['ingia'])) {
 }
 //When The Logout Button Is Pressed 
 if (isset($_GET['logout'])) {
-	$revert = "UPDATE users SET logged = '0' WHERE phone = '$phon'";
+	$namba = $_SESSION['islogged'];
+	$revert = "UPDATE users SET logged = '0' WHERE phone = '$namba'";
 	$revconf = mysqli_query($connect, $revert);
 
 	//Destroy session
