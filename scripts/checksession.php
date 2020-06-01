@@ -15,6 +15,7 @@ if (empty($_SESSION['islogged']) || !isset($_SESSION['islogged'])) {
 	if (mysqli_num_rows($findus) > 0) {
 		while ($row = mysqli_fetch_assoc($findus)) {
 			$user = $row['name'];
+			$userPhone = $row['phone'];
 			$change_st = "UPDATE users SET logged = '1' WHERE name = '$user'";
 			$confirm = mysqli_query($connect, $change_st);
 		}

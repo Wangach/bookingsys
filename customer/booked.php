@@ -59,19 +59,19 @@ if (isset($_GET['hourid'])) {
 			<form action="scripts/book.php" id="bookings-form" method="POST">
 				<div class="form-group">
 					<label for="you">Your Name:</label>
-					<input type="text" class="form-control" placeholder="Your Name..." name="" id="" required>
+					<input type="text" class="form-control" placeholder="Your Name..." value="<?php echo $user; ?>" name="playerone" id="yn" disabled>
 				</div>
 				<div class="form-group">
 					<label for="opponent">Opponent Name:</label>
-					<input type="text" class="form-control" placeholder="Opponent's Name..." name="" id="" required>
+					<input type="text" class="form-control" placeholder="Opponent's Name..." name="playertwo" id="on" required>
 				</div>
 				<div class="form-group">
 					<label for="time">Chosen Time:</label>
-					<input type="text" class="form-control" placeholder="Playing Time..." value="<?php echo $playTime; ?>" disabled>
+					<input type="text" class="form-control" placeholder="Playing Time..." value="<?php echo $playTime; ?>" name="playtime" id="top">
 				</div>
 				<div class="form-group">
 					<label for="matches">No. Of Matches:</label>
-					<select name="" id="" class="form-control" required>
+					<select name="matchestoplay" id="nom" class="form-control" required>
 						<option value=""></option>
 						<option value="1" name="1">1</option>
 						<option value="2" name="2">2</option>
@@ -84,7 +84,7 @@ if (isset($_GET['hourid'])) {
 				</div>
 				<div class="form-group">
 					<label for="time">Phone Number:</label>
-					<input type="text" class="form-control" placeholder="Your Phone Number..." name="" id="" required>
+					<input type="text" class="form-control" placeholder="Your Phone Number..." value="<?php echo $userPhone; ?>" name="phoneno" id="pn" disabled>
 				</div>
 				<button type="submit" class="btn btn-success">Book Now</button>
 			</form>
