@@ -1,26 +1,6 @@
 <?php
-include '../scripts/checksession.php';
+include 'scripts/gethour.php';
 $output = '';
-
-if (isset($_GET['hourid'])) {
-	$connect = mysqli_connect("localhost", "root", "", "bookingsys");
-	$selectedHour = $_GET['hourid'];
-
-
-	$tafuta = "SELECT * FROM consoles WHERE id = '$selectedHour'";
-	$pata = mysqli_query($connect, $tafuta);
-	//Check Whether Such a row exists
-	if (mysqli_num_rows($pata) > 0) {
-		while ($data = mysqli_fetch_assoc($pata)) {
-			$hr = $data['id'];
-			$nombre = $data['psname'];
-			$playTime = $data['pshours'];
-			$bookStat = $data['bookstatus'];
-		}
-	}
-	
-}
-
 
 ?>
 
@@ -86,7 +66,7 @@ if (isset($_GET['hourid'])) {
 					<label for="time">Phone Number:</label>
 					<input type="text" class="form-control" placeholder="Your Phone Number..." value="<?php echo $userPhone; ?>" name="phoneno" id="pn" disabled>
 				</div>
-				<button type="submit" class="btn btn-success">Book Now</button>
+				<button name="spot" type="submit" class="btn btn-success">Book Now</button>
 			</form>
 		</div><!--/#book-step/-->
 	<footer id="foot">
