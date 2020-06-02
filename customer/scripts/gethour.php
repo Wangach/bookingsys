@@ -1,5 +1,5 @@
 <?php 
-include '../scripts/checksession.php';
+include '../../scripts/checksession.php';
 
 
 if (isset($_GET['hourid']) && !empty($_GET['hourid'])) {
