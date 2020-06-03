@@ -1,6 +1,7 @@
 <?php 
+$path =  $_SERVER["DOCUMENT_ROOT"];
 include 'database.php';
-include 'gethour.php';
+include $path.'/bookingsys/scripts/checksession.php';
 
 
 
@@ -12,7 +13,7 @@ if (isset($_POST['spot'])) {
 	$yourChosenTme = mysqli_real_escape_string($connect, $_POST['playtime']);
 	$numberOfMatches = mysqli_real_escape_string($connect, $_POST['matchestoplay']);
 	$yourPhone = $userPhone;
-	$availId = $selectedHour;
+	$availId = $_SESSION['saa'];
 
 	//Generate Order Number
 	$random = ["1", "2", "3", "5", "6", "7", "8", "9", "0"];
@@ -25,14 +26,14 @@ if (isset($_POST['spot'])) {
 	}
 
 	//Send THis Values To The Database
-	$send = "INSERT INTO orders (id, hplayer, aplayer, tme, matches, booker, phone, ordernum, availability_id) VALUES ('NULL', $yourName', '$yourOpponent', '$yourChosenTme', '$numberOfMatches', '$yourName', '$yourPhone', '$holder', '$availId')";
+	$send = "INSERT INTO orders (hplayer, aplayer, tme, matches, booker, phone, ordernum, availability_id) VALUES ($yourName', '$yourOpponent', '$yourChosenTme', '$numberOfMatches', '$yourName', '$yourPhone', '$holder', '$availId')";
 	$confirm = mysqli_query($connect, $send);
 
 	if (!$confirm) {
 		#There Has Been An Error
 		echo "Sorry! The Following Error Has Occured ".mysqli_error($connect) . "!";
 	}else{
-		echo "Thankyou For Booking With Us. A confirmation Text Will Be Sent To The Provided Phone Number Once The Admin Confirms Your Order. Your Order Number Is ";
+		echo "Thankyou For Booking With Us. A confirmation Text Will Be Sent To The Provided Phone Number Once The Admin Confirms Your Order. Your Order Number Is ".$holder;
 	}
 
 }
