@@ -1,4 +1,5 @@
 <?php
+include '../scripts/checksession.php';
 include 'scripts/gethour.php';
 $output = '';
 
