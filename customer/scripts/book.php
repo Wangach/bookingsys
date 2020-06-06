@@ -26,8 +26,12 @@ if (isset($_POST['spot'])) {
 	}
 
 	//Send THis Values To The Database
-	$send = "INSERT INTO orders (hplayer, aplayer, tme, matches, booker, phone, ordernum, availability_id) VALUES ($yourName', '$yourOpponent', '$yourChosenTme', '$numberOfMatches', '$yourName', '$yourPhone', '$holder', '$availId')";
+	$send = "INSERT INTO orders (hplayer, aplayer, tme, matches, booker, phone, ordernum, availability_id) VALUES ('$yourName', '$yourOpponent', '$yourChosenTme', '$numberOfMatches', '$yourName', '$yourPhone', '$holder', '$availId')";
 	$confirm = mysqli_query($connect, $send);
+
+	//Set The Hour status to UNavailable
+	$axn = "UPDATE consoles SET bookstatus = '1' WHERE id = '$availId'";
+	$updStat = mysqli_query($connect, $axn);
 
 	if (!$confirm) {
 		#There Has Been An Error
