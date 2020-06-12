@@ -57,6 +57,7 @@ $output = '';
 				<h2>Book Playstation</h2>
 			</div>
 			<form action="scripts/book.php" id="bookings-form" method="POST">
+				<div class="feedback"></div>
 				<div class="form-group">
 					<label for="you">Your Name:</label>
 					<input type="text" class="form-control" placeholder="Your Name..." value="<?php echo $user; ?>" name="playerone" id="yn" disabled>

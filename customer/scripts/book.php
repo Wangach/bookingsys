@@ -6,8 +6,6 @@ include $path.'/bookingsys/scripts/checksession.php';
 
 
 //Values To Feed THe Database
-
-if (isset($_POST['spot'])) {
 	$yourName = $user;
 	$yourOpponent = mysqli_real_escape_string($connect, $_POST['playertwo']);
 	$yourChosenTme = mysqli_real_escape_string($connect, $_POST['playtime']);
@@ -40,5 +38,5 @@ if (isset($_POST['spot'])) {
 		echo "Thankyou For Booking With Us. A confirmation Text Will Be Sent To The Provided Phone Number Once The Admin Confirms Your Order. Your Order Number Is ".$holder;
 	}
 
-}
+
  ?>
