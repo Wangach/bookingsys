@@ -9,7 +9,13 @@
 	box-sizing: border-box;
 }
 html{
-	background: url(../img/dualshock4.jpg) no-repeat center center fixed;
+	background-image: linear-gradient(to right bottom,
+		rgba(2,0,36,1),
+		rgba(2,0,36,0.6)),
+	 url(../img/dualshock4.jpg);
+	 background-position: center;
+	 background-repeat: no-repeat;
+	 background-attachment: fixed;
 	-webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
@@ -18,6 +24,7 @@ html{
 }
 body{
 	overflow-x: hidden;
+	position: relative;
 }
 
 nav.mynav {
@@ -28,13 +35,7 @@ nav.mynav {
 	background: #5d4954;
 	z-index: 99999;
 }
-div.overlay{
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 92, 72, 0.35);
-	position: absolute;
-	z-index: 99;
-}
+
 #clogo {
 	color: rgb(226, 226, 226);
 	text-transform: uppercase;
@@ -88,7 +89,6 @@ div#organize {
 	"newest statistics"
 	"factoids statistics";
 	grid-gap: 10px;
-	z-index: 9999;
 	background: rgba(19, 17, 17, 0.6);
 	width: 90%;
 	color: rgb(226, 226, 226);
