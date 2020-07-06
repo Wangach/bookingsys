@@ -1,3 +1,7 @@
+<?php 
+include '../scripts/checksession.php';
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +35,11 @@
 				</li>
 				<li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> Notifications <span class="badge badge-primary">0</span></a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Joohn Kimani <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $user; ?> <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#"> <span class="glyphicon glyphicon-user"></span>  My Profile</a></li>
 						<li><a href="#"> <span class="glyphicon glyphicon-pencil"></span>  My Bookings <span class="badge badge-info">
-							
+							<?php include 'scripts/getindividualbookings.php'; ?>
 						</span></a></li>
 						<li><a href="../scripts/cuslogin.php?logout=1"> <span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
 					</ul>
@@ -47,12 +51,14 @@
     <header class="myheader">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="intro">Hello John Kimani</h2>
-                <p class="after-intro">You Have A Total Of 2 Bookings</p>
+                <p>Please Click The Button Below to load Your Bookings</p>
+                
+                <p class="after-intro">You Have A Total Of <span class="bookings"><?php include 'scripts/getindividualbookings.php'; ?></span> Bookings</p>
+
+                <button id="get-bookings" class="btn btn-success">Load Bookings</button>
             </div><!--/.end of column/-->
             <div class="col-md-6">
-                <p>Please Click The Button Below to load Your Bookings</p>
-                <button class="btn btn-success">Load Bookings</button>
+                <h1>Your Bookings John Kimani</h1>
 
                 <div id="show-bookings">
 
@@ -70,6 +76,7 @@
 	</footer>
 	
 	<script src="js/book.js"></script>
+	<script src="js/showbookings.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/bootstrap.min.js"></script>
 </body>
