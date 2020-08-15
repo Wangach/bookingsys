@@ -38,7 +38,7 @@ include '../scripts/checksession.php';
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $user; ?> <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="#"> <span class="glyphicon glyphicon-user"></span>  My Profile</a></li>
-						<li><a href="#"> <span class="glyphicon glyphicon-pencil"></span>  My Bookings <span class="badge badge-info">
+						<li><a target="_blank" href="viewbookings.php"> <span class="glyphicon glyphicon-pencil"></span>  My Bookings <span class="badge badge-info">
 							<?php include 'scripts/getindividualbookings.php'; ?>
 						</span></a></li>
 						<li><a href="../scripts/cuslogin.php?logout=1"> <span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>

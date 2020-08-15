@@ -225,7 +225,7 @@ header.myheader {
 	height: 80vh;
 	border-radius: 5px;
 	margin: 10px auto;
-	background-image:linear-gradient(to right, rgba(12, 182, 145, 0.376),rgba(12, 182, 145, 0.904)), 
+	background-image:linear-gradient(to right, rgba(128, 24, 19, 0.376),rgba(128, 24, 19, 0.904)), 
 	url(../img/dualshock3.jpg);
 	background-attachment: fixed;
 	background-size: cover;
